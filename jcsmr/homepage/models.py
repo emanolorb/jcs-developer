@@ -25,5 +25,5 @@ class HomePageSlider(models.Model):
 
 
 class HomePageText(models.Model):
-    title = model.CharField(max_length=80)
-    subtitle = model.CharField()
+    title = models.CharField(max_length=80)
+    subtitle = models.TextField()
