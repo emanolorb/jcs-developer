@@ -87,36 +87,31 @@
                     </div>
                     <div class="row center-align">
                         <img src="/media/{{ img1 }}" class = "arriba" alt="" height="280">
+                        <strong><h1 class="grey-text text-{{ colorMaintitle }}">{{ mainTitle }}</h1></strong>
+                        <h3 class="grey-text text-{{ colorMainSubtitle }}">{{ mainDescription }}</p>
                     </div>
-                    <div class="row center-align">
-                        <strong><h1 class="white-text">JC's Restaurant</h1></strong>
-                    </div>
-
                </div>
         </div>
 <!-- seccion blanca -->
                 <div class="section white">
                         <div class="row container">
-                            <div>
-                                <a href="" class="waves-effect waves-light btn"> Hola Mundo</a>
-                            </div>
-    <!-- slider -->
+     <!-- slider -->
                             <div class="slider ">
                                 <ul class="slides lime darken-2">
                                     {% for obj in data %}
                                     <li>
                                         <img src="/media/{{ obj.slider_image.name }}"> <!-- random image -->
                                         <div class="caption {{ obj.get_aligned_caption_display }}-align">
-                                        <h3>{{ obj.big_tag_line }} - {{ obj.get_aligned_caption_display }} Aligned</h3>
-                                        <h5 class="light grey-text text-lighten-3">{{ obj.small_slogan }}</h5>
+                                        <h3 class="light grey-text text-{{ obj.color_big_tag }}">{{ obj.big_tag_line }}</h3>
+                                        <h5 class="light grey-text text-{{ obj.color_small_tag }}">{{ obj.small_slogan }}</h5>
                                         </div>
                                     </li>
                                     {% endfor %}
                                 </ul>
                                 </div>
     <!-- letras -->
-                                <h2 class="header">Parallax</h2>
-                                <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+                                <h2 class="header">{{ blanktextTitle1 }}</h2>
+                                <p class="grey-text text-darken-3 lighten-3">{{ blanktextDescription1 }} is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
                                 </div>
                        </div>
                 </div>

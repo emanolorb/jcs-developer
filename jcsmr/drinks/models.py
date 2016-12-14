@@ -6,6 +6,6 @@ class Drink(models.Model):
     description = models.TextField()
     alcoholic_beverage = models.BooleanField(default=False)
     uploaded_at = models.DateTimeField(auto_now_add=True, editable=False)
-    
+
     def __str__(self):
         return self.name
