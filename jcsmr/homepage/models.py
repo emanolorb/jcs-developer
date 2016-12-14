@@ -42,7 +42,9 @@ class HomePageText(models.Model):
     color_small_tag = models.CharField(
         max_length=10,
         choices=(('lighten-5', 'white'), ('darken-1', 'grey'), ('darken-4', 'black')))
+    blank_panel_title = models.CharField(max_length = 80)
     blank_panel_text = models.TextField()
+    blank_panel_title2 = models.CharField(max_length = 80)
     blank_panel_text_2 = models.TextField()
 
     def save(self, *args, **kwargs):

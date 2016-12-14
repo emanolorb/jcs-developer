@@ -25,6 +25,8 @@ def index(request):
             texto1 = '%s' %(obj1.subtitle)
             texto2 = '%s' %(obj1.blank_panel_text)
             texto3 = '%s' %(obj1.blank_panel_text_2)
+            texto4 = '%s' %(obj1.blank_panel_title)
+            texto5 = '%s' %(obj1.blank_panel_title2)
             color = '%s' %(obj1.color_title)
             color1 = '%s' %(obj1.color_small_tag)
     else:
@@ -34,14 +36,18 @@ def index(request):
         texto3 = '%s' %('este es un subtitulo')
         color = '%s' %('lighten-5')
         color1 = '%s' %('lighten-5')
+        texto4 = '%s' %('Titulo blank section')
+        texto5 = '%s' %('Titulo blank section')
     context = {
         'img1' : nombre,
         'img2' : nombre1,
         'img3' : nombre2,
         'mainTitle' : texto,
         'mainDescription' : texto1,
-        'blanktextTitle1' : texto2,
-        'blanktextDescription1' : texto3,
+        'blanktextDescription1' : texto2,
+        'blanktextDescription2' : texto3,
+        'blanktextTitle1' : texto4,
+        'blanktextTitle2' : texto5,
         'data' : data1,
         'colorMaintitle' : color,
         'colorMainSubtitle' : color1,
