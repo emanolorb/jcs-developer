@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 class HomePageImage(models.Model):
@@ -7,6 +8,21 @@ class HomePageImage(models.Model):
     paralax_image2 = models.ImageField()
 
     def save(self, *args, **kwargs):
+        data = HomePageImage.objects.filter()
+        if data:
+            for obj in data:
+                main_icon_var = '%s' %(obj.main_icon.name)
+                main_iconurl = '%s' %(obj.main_icon.path)
+                paralax_image1_var = '%s' %(obj.paralax_image1.name)
+                paralax_image1url = '%s' %(obj.paralax_image1.path)
+                paralax_image2_var = '%s' %(obj.paralax_image2.name)
+                paralax_image2url = '%s' %(obj.paralax_image2.path)
+            if main_icon_var != self.main_icon.name:
+                os.remove(main_iconurl)
+            if paralax_image1_var != self.paralax_image1.name:
+                os.remove(paralax_image1url)
+            if paralax_image2_var != self.paralax_image2.name:
+                os.remove(paralax_image2url)
         HomePageImage.objects.filter().delete()
         super(HomePageImage, self).save(*args, **kwargs)
         HomePageImage.objects.filter().update(id=1)

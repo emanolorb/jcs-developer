@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'drinks',
     'homepage',
     'menus',
-
 ]
 
 MIDDLEWARE = [
