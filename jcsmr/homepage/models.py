@@ -3,26 +3,31 @@ import os
 
 
 class HomePageImage(models.Model):
+    favicon = models.ImageField()
     main_icon = models.ImageField()
-    paralax_image1 = models.ImageField()
-    paralax_image2 = models.ImageField()
+    parallax_image1 = models.ImageField()
+    parallax_image2 = models.ImageField()
 
     def save(self, *args, **kwargs):
         data = HomePageImage.objects.filter()
         if data:
             for obj in data:
+                favicon_var = '%s' %(obj.favicon.name)
+                faviconurl = '%s' %(obj.favicon.path)
                 main_icon_var = '%s' %(obj.main_icon.name)
                 main_iconurl = '%s' %(obj.main_icon.path)
-                paralax_image1_var = '%s' %(obj.paralax_image1.name)
-                paralax_image1url = '%s' %(obj.paralax_image1.path)
-                paralax_image2_var = '%s' %(obj.paralax_image2.name)
-                paralax_image2url = '%s' %(obj.paralax_image2.path)
+                parallax_image1_var = '%s' %(obj.parallax_image1.name)
+                parallax_image1url = '%s' %(obj.parallax_image1.path)
+                parallax_image2_var = '%s' %(obj.parallax_image2.name)
+                parallax_image2url = '%s' %(obj.parallax_image2.path)
+            if favicon_var != self.favicon.name:
+                os.remove(faviconurl)
             if main_icon_var != self.main_icon.name:
                 os.remove(main_iconurl)
-            if paralax_image1_var != self.paralax_image1.name:
-                os.remove(paralax_image1url)
-            if paralax_image2_var != self.paralax_image2.name:
-                os.remove(paralax_image2url)
+            if parallax_image1_var != self.parallax_image1.name:
+                os.remove(parallax_image1url)
+            if parallax_image2_var != self.parallax_image2.name:
+                os.remove(parallax_image2url)
         HomePageImage.objects.filter().delete()
         super(HomePageImage, self).save(*args, **kwargs)
         HomePageImage.objects.filter().update(id=1)

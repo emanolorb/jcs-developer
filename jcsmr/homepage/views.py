@@ -11,12 +11,14 @@ def index(request):
         # Sacamos el nombre de cada imagen de portada
         for obj in data:
             nombre = '%s' %(obj.main_icon.name)
-            nombre1 = '%s' %(obj.paralax_image1.name)
-            nombre2 = '%s' %(obj.paralax_image2.name)
+            nombre1 = '%s' %(obj.parallax_image1.name)
+            nombre2 = '%s' %(obj.parallax_image2.name)
+            nombre3 = '%s' %(obj.favicon.name)
     else:
         nombre = '%s' %('')
         nombre1 = '%s' %('')
         nombre2 = '%s' %('')
+        nombre3 = '%s' %('')
     # validamos el query y si no damos valores a las variables
     if data2:
         # Sacamos el texto que va a llevar la pagina
@@ -42,6 +44,7 @@ def index(request):
         'img1' : nombre,
         'img2' : nombre1,
         'img3' : nombre2,
+        'img4' : nombre3,
         'mainTitle' : texto,
         'mainDescription' : texto1,
         'blanktextDescription1' : texto2,
@@ -60,8 +63,8 @@ def contact(request):
     nombre = ''
     for obj in data:
         nombre = '%s' %(obj.main_icon.name)
-        nombre1 = '%s' %(obj.paralax_image1.name)
-        nombre2 = '%s' %(obj.paralax_image2.name)
+        nombre1 = '%s' %(obj.parallax_image1.name)
+        nombre2 = '%s' %(obj.parallax_image2.name)
     context = {
         'img1' : nombre,
         'img2' : nombre1,
