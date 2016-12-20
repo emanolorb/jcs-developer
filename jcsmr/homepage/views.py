@@ -60,14 +60,24 @@ def index(request):
 def contact(request):
     data = HomePageImage.objects.all()
     # Sacamos el nombre de cada imagen
-    nombre = ''
-    for obj in data:
-        nombre = '%s' %(obj.main_icon.name)
-        nombre1 = '%s' %(obj.parallax_image1.name)
-        nombre2 = '%s' %(obj.parallax_image2.name)
+    # validamos el query y si no damos valores a las variables
+    if data:
+        # Sacamos el nombre de cada imagen de portada
+        for obj in data:
+            nombre = '%s' %(obj.main_icon.name)
+            nombre1 = '%s' %(obj.parallax_image1.name)
+            nombre3 = '%s' %(obj.favicon.name)
+    else:
+        nombre = '%s' %('')
+        nombre1 = '%s' %('')
+        nombre3 = '%s' %('')
     context = {
         'img1' : nombre,
         'img2' : nombre1,
-        'img3' : nombre2,
+        'img4' : nombre3,
     }
+    if request.method == 'POST':
+        print (" esto es un post ")
+    else:
+        print (" esto no es un post")
     return render(request, 'contact.html', context)

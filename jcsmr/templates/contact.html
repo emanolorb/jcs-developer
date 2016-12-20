@@ -1,11 +1,157 @@
 {% extends 'base/base.html' %}
 
+{% block extrastatic %}
+<link rel="shortcut icon" href="/media/{{ img4 }}"/>
+<!-- style css -->
+    {{ block.super }}
+    <style>
+                .parallax-container{
+                    height: 500px;
+                }
+                div.parallax-container{
+                    z-index: 1;
+                }
+                /* este es el efecto de los botones cabeceras de inicio */
+                div.arriba{
+                    z-index: 2;
+                }
+                .hvr-border-fade {
+                display: inline-block;
+                vertical-align: middle;
+                -webkit-transform: perspective(1px) translateZ(0);
+                transform: perspective(1px) translateZ(0);
+                box-shadow: 0 0 1px transparent;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+                -webkit-transition-property: box-shadow;
+                transition-property: box-shadow;
+                box-shadow: inset 0 0 0 4px #e1e1e1, 0 0 1px transparent;
+                /* Hack to improve aliasing on mobile/tablet devices */
+                }
+                .hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
+                box-shadow: inset 0 0 0 4px #716554, 0 0 1px transparent;
+                /* Hack to improve aliasing on mobile/tablet devices */
+                }
+                /* tipografia */
+                html {
+                    font-family: GillSans;
+                }
+    </style>
+{% endblock %}
+{% block navbar %}
+
+{% endblock %}
+
+{% block title %}
+    JC's - Home
+{% endblock %}
+
 {% block content %}
+<section>
+<!-- seccion parallax -->
+        <div class="parallax-container">
+            <div class="parallax row">
+                <img src="/media/{{ img2 }}"> 
+            </div>
+                <div class="arriba">
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col s12 m4 l4">
+                            <a href="/" class="hvr-border-fade btn-large white-text btn-flat btn"><strong>Home</strong></a>
+                            <a href="#" class="hvr-border-fade btn-large white-text btn-flat"><strong>History</strong></a>
+                            <a href="#" class="hvr-border-fade btn-large white-text btn-flat"><strong>Menus</strong></a>   
+                        </div>
+                        <div class="col s12 m4 l6 letf"><!-- Aqui va el logo de la empresa --></div>
+                        <div class="col s12 m4 l2"><a href="/contact" class="hvr-border-fade btn-flat btn-large white-text"><strong>CONTACT</strong></a></div>
+                    </div>
+                    <div class="row center-align">
+                        <img src="/media/{{ img1 }}" class = "arriba" alt="" height="280">
+                    </div>
+                    <div class="row center">
+                           <a href="" class=""><img src="/media/prueba.png"></a>
+                    </div>
+               </div>
+        </div>
+<!-- seccion blanca -->
+                <div class="section white">
 
-        <img>  </img>
-        <p>{{ img1 }}</p>
+<!-- Formulario de contacto -->
+        <div class="container">
+            <form action="/contact" class="" method="POST">
+                {% csrf_token %}
+            <div class="container">
+                <div class="input-field">
+                <div class="divider"></div>
+                        <h5 class="center"><stronge>W</stronge>e are dedicated to each and every one of our customers. Feel free to contact us with your comments, questions and concerns. Please call or use the form provided on this page to get in touch with our staff.</h5>
+            <div class="divider"></div>
+                </div>
+        <div class="col s12 m7">
+            <h2 class="header">Contact us</h2>
+            <div class="card horizontal">
+            <div class="card-image">
+                <img src="http://marevagillioz.com/wp-content/uploads/2015/09/contacto.jpg">
+            </div>
+            <div class="card-stacked">
+        <!-- cart content-->
+                <div class="card-content col s6">
 
-                        <img src="/media/{{ img1 }}" class = "arriba"alt="">
+            <!-- nombre -->
+                <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">First Name</label>
+                </div>
+            <!-- telefono -->
+                <div class="input-field">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate">
+                <label for="icon_telephone">Telephone - (Optional)</label>
+                </div>
+            <!-- email -->
+                <div class="input-field">
+                <i class="material-icons prefix">email</i>
+                <input id="email" type="email" class="validate">
+                <label for="email" data-error="wrong" data-success="right">Email</label>
+                </div>
+            <!-- mensaje -->
+                <div class="input-field">
+                <i class="material-icons prefix">message</i>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Message</label>
+                </div>
+            <!-- submit -->
+                <div class="row center">
+                        <button class="btn waves-effect waves-light" type="submit">SEND
+                                <i class="material-icons right">send</i>
+                        </button>
+                </div>
+
+            </div>
+            </div>
+            </div>
+            <div class="container">
+                        <h5 class="center">You can also reach us on Facebook or find out more about our restaurant using the Yelp link below.</h5>
+                </div>
+            </div>
+            <div class="divider"></div>
+            </div>
+            </div>
+        </div>
+            </form>
+        </div>
 
 
+                </div>
+
+    </div>
+</section>
+{% endblock %}
+{% block scrips %}
+<!-- seccion de scripts -->
+    {{ block.super }}
+        <script>
+         $(document).ready(function(){
+         $('.parallax').parallax();
+         });
+        </script>   
 {% endblock %}
