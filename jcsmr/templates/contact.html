@@ -74,11 +74,7 @@
         </div>
 <!-- seccion blanca -->
                 <div class="section white">
-
-<!-- Formulario de contacto -->
         <div class="container">
-            <form action="/contact" class="" method="POST">
-                {% csrf_token %}
             <div class="container">
                 <div class="input-field">
                 <div class="divider"></div>
@@ -92,40 +88,42 @@
                 <img src="http://marevagillioz.com/wp-content/uploads/2015/09/contacto.jpg">
             </div>
             <div class="card-stacked">
-        <!-- cart content-->
+    <!-- cart content-->
                 <div class="card-content col s6">
-
-            <!-- nombre -->
-                <div class="input-field">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">First Name</label>
-                </div>
-            <!-- telefono -->
-                <div class="input-field">
-                <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">Telephone - (Optional)</label>
-                </div>
-            <!-- email -->
-                <div class="input-field">
-                <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate">
-                <label for="email" data-error="wrong" data-success="right">Email</label>
-                </div>
-            <!-- mensaje -->
-                <div class="input-field">
-                <i class="material-icons prefix">message</i>
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">Message</label>
-                </div>
-            <!-- submit -->
-                <div class="row center">
-                        <button class="btn waves-effect waves-light" type="submit">SEND
-                                <i class="material-icons right">send</i>
-                        </button>
-                </div>
-
+<!-- Formulario de contacto -->
+                    <form action="/contact" class="" method="POST">
+                    {% csrf_token %}
+                            <!-- nombre -->
+                            <div class="input-field" name="first_name">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input name="first_name" id="first_name" type="text" class="validate">
+                                <label for="icon_telephone">First name</label>
+                            </div>
+                            <!-- telefono -->
+                            <div class="input-field" name="phone">
+                                <i class="material-icons prefix">phone</i>
+                                    <input name="phone" id="phone" type="tel" class="validate">
+                                <label for="phone">Phone</label>
+                            </div>
+                            <!-- email -->
+                            <div class="input-field" name="email">
+                                <i class="material-icons prefix">email</i>
+                                <input name="email" id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                            <!-- mensaje -->
+                            <div class="input-field" name="message">
+                                <i class="material-icons prefix">message</i>
+                                <textarea name="message" id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Message</label>
+                            </div>
+                            <!-- submit -->
+                                <div class="row center">
+                                        <button class="btn waves-effect waves-light" type="submit">SEND
+                                                <i class="material-icons right">send</i>
+                                        </button>
+                                </div>
+                </form>
             </div>
             </div>
             </div>
@@ -137,12 +135,8 @@
             </div>
             </div>
         </div>
-            </form>
         </div>
-
-
                 </div>
-
     </div>
 </section>
 {% endblock %}

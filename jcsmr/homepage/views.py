@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import HomePageImage, HomePageSlider, HomePageText
+from contacts.forms import AddContactForm
+from contacts.models import Contact
 # Create your views here.
 def index(request):
     data = HomePageImage.objects.all()
@@ -77,7 +79,20 @@ def contact(request):
         'img4' : nombre3,
     }
     if request.method == 'POST':
-        print (" esto es un post ")
+        # print ( request.__dict__ )
+        print ( request.POST.get('first_name') )
+        print ( request.POST.get('phone') )
+        print ( request.POST.get('email') )
+        print ( request.POST.get('message') )  
+        paquete = {'first_name' : request.POST.get('first_name'), 'phone' : request.POST.get('phone'),  'email' : request.POST.get('email'),  'message' : request.POST.get('message')}
+        form = AddContactForm(paquete)
+        print ( form ) 
+        if form.is_valid():
+            form.save()
+            print ( 'si' )
+
+        else:
+            print ( 'no' )
     else:
         print (" esto no es un post")
     return render(request, 'contact.html', context)
