@@ -75,3 +75,24 @@ class HomePageText(models.Model):
 
     def __str__(self):
         return '%s - %s' % ('Initial text template', self.title)
+
+
+class ContactPageImage(models.Model):
+    contact_image = models.ImageField()
+    text1 = models.TextField()
+    text2 = models.TextField()
+
+    def save(self, *args, **kwargs):
+        data = ContactPageImage.objects.filter()
+        if data:
+            for obj in data:
+                contact_imagepath = '%s' %(obj.contact_image.path)
+                contact_imagename = '%s' %(obj.contact_image.name)
+            if contact_imagename != self.contact_image.name:
+                os.remove(contact_imagepath)
+        ContactPageImage.objects.filter().delete()
+        super(ContactPageImage, self).save(*args, **kwargs)
+        ContactPageImage.objects.filter().update(id=1)
+
+    def __str__(self):
+        return '%s - %s' % ('Initial imge contact-template', self.contact_image)

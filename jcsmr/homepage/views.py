@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import HomePageImage, HomePageSlider, HomePageText
+from .models import HomePageImage, HomePageSlider, HomePageText, ContactPageImage
 from contacts.forms import AddContactForm
 from contacts.models import Contact
 # Create your views here.
@@ -61,7 +61,7 @@ def index(request):
 
 def contact(request):
     data = HomePageImage.objects.all()
-    # Sacamos el nombre de cada imagen
+    data2 = ContactPageImage.objects.all()
     # validamos el query y si no damos valores a las variables
     if data:
         # Sacamos el nombre de cada imagen de portada
@@ -78,21 +78,30 @@ def contact(request):
         'img2' : nombre1,
         'img4' : nombre3,
     }
+    # validamos el query y si no damos valores a las variables
+    if data2:
+        # Sacamos el nombre de cada imagen de portada
+        for obj in data2:
+            imageContact = '%s' %(obj.contact_image.name)
+            textContact1 = '%s' %(obj.text1)
+            textContact2 = '%s' %(obj.text2)
+    else:
+        imageContact = '%s' %('')
+        textContact1 = '%s' %('')
+        textContact2 = '%s' %('')
+    context = {
+        'imageContact' : imageContact,
+        'textContact1' : textContact1,
+        'textContact2' : textContact2,
+    }
     if request.method == 'POST':
-        # print ( request.__dict__ )
-        print ( request.POST.get('first_name') )
-        print ( request.POST.get('phone') )
-        print ( request.POST.get('email') )
-        print ( request.POST.get('message') )  
-        paquete = {'first_name' : request.POST.get('first_name'), 'phone' : request.POST.get('phone'),  'email' : request.POST.get('email'),  'message' : request.POST.get('message')}
+        paquete = {
+            'first_name' : request.POST.get('first_name'),
+            'phone' : request.POST.get('phone'),
+            'email' : request.POST.get('email'),
+            'message' : request.POST.get('message')
+            }
         form = AddContactForm(paquete)
-        print ( form ) 
         if form.is_valid():
             form.save()
-            print ( 'si' )
-
-        else:
-            print ( 'no' )
-    else:
-        print (" esto no es un post")
     return render(request, 'contact.html', context)
