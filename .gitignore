@@ -93,6 +93,7 @@ ENV/
 *.db
 *.sqlite
 
-data/
+**/data/*
+!**/data/media/prueba.png
 **/migrations/*
 !**/migrations/__init__.py
