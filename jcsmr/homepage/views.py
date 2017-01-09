@@ -73,11 +73,7 @@ def contact(request):
         nombre = '%s' %('')
         nombre1 = '%s' %('')
         nombre3 = '%s' %('')
-    context = {
-        'img1' : nombre,
-        'img2' : nombre1,
-        'img4' : nombre3,
-    }
+    print ( data.__dict__ )
     # validamos el query y si no damos valores a las variables
     if data2:
         # Sacamos el nombre de cada imagen de portada
@@ -90,6 +86,9 @@ def contact(request):
         textContact1 = '%s' %('')
         textContact2 = '%s' %('')
     context = {
+        'img1' : nombre,
+        'img2' : nombre1,
+        'img4' : nombre3,
         'imageContact' : imageContact,
         'textContact1' : textContact1,
         'textContact2' : textContact2,
