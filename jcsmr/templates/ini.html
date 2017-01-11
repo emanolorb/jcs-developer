@@ -6,31 +6,7 @@
     {{ block.super }}
     <style>
                 .parallax-container{
-                    height: 630px;
-                }
-                div.parallax-container{
-                    z-index: 1;
-                }
-                /* este es el efecto de los botones cabeceras de inicio */
-                div.arriba{
-                    z-index: 2;
-                }
-                .hvr-border-fade {
-                display: inline-block;
-                vertical-align: middle;
-                -webkit-transform: perspective(1px) translateZ(0);
-                transform: perspective(1px) translateZ(0);
-                box-shadow: 0 0 1px transparent;
-                -webkit-transition-duration: 0.3s;
-                transition-duration: 0.3s;
-                -webkit-transition-property: box-shadow;
-                transition-property: box-shadow;
-                box-shadow: inset 0 0 0 4px #e1e1e1, 0 0 1px transparent;
-                /* Hack to improve aliasing on mobile/tablet devices */
-                }
-                .hvr-border-fade:hover, .hvr-border-fade:focus, .hvr-border-fade:active {
-                box-shadow: inset 0 0 0 4px #716554, 0 0 1px transparent;
-                /* Hack to improve aliasing on mobile/tablet devices */
+                    height: 300px;
                 }
                 /* tipografia */
                 html {
@@ -54,12 +30,9 @@
                 .slider .indicators {
                 bottom: 60px;
                 z-index: 100;
-                /* text-align: left; */
                 }
+                /* correspondiente al navbar que se mueve */
     </style>
-{% endblock %}
-{% block navbar %}
-
 {% endblock %}
 
 {% block title %}
@@ -73,21 +46,8 @@
             <div class="parallax row">
                 <img src="/media/{{ img2 }}"> 
             </div>
-
-
                 <div class="arriba">
-                    <div class="row"></div>
-                    <div class="row">
-                        <div class="col s12 m4 l4">
-                            <a href="#" class="hvr-border-fade btn-large white-text btn-flat btn"><strong>Home</strong></a>
-                            <a href="#" class="hvr-border-fade btn-large white-text btn-flat"><strong>History</strong></a>
-                            <a href="#" class="hvr-border-fade btn-large white-text btn-flat"><strong>Menus</strong></a>   
-                        </div>
-                        <div class="col s12 m4 l6 letf"><!-- Aqui va el logo de la empresa --></div>
-                        <div class="col s12 m4 l2"><a href="/contact" class="hvr-border-fade btn-flat btn-large white-text"><strong>CONTACT</strong></a></div>
-                    </div>
                     <div class="row center-align">
-                        <img src="/media/{{ img1 }}" class = "arriba" alt="" height="280">
                         <strong><h1 class="grey-text text-{{ colorMaintitle }}">{{ mainTitle }}</h1></strong>
                         <h3 class="grey-text text-{{ colorMainSubtitle }}">{{ mainDescription }}</p>
                     </div>
@@ -129,17 +89,4 @@
         </div>
     </div>
 </section>
-{% endblock %}
-{% block scrips %}
-<!-- seccion de scripts -->
-    {{ block.super }}
-        <script>
-         $(document).ready(function(){
-         $('.slider').slider({
-             full_width: true,
-             interval: 3000
-             });
-         $('.parallax').parallax();
-         });
-        </script>   
 {% endblock %}

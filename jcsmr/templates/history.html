@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block extrastatic %}
+<link rel="shortcut icon" href="/media/{{ img4 }}"/>
+<!-- style css -->
+    {{ block.super }}
+    <style>
+                /* tipografia */
+                html {
+                    font-family: GillSans;
+                }
+    </style>
+{% endblock %}
+
+{% block title %}
+    JC's - History
+{% endblock %}
+
+{% block content %}
+<section>
+<!-- seccion blanca -->
+    <div id="historyseccion" class="section scrollspy">
+        <div class="section white">
+            <div class="container">
+                <div class="col s12 m5">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="/media/{{ imageHistory }}">
+                                <span class="card-title">History</span>
+                            </div>
+                            <div class="card-content">
+                                <p class="flow-text">{{ textHistory }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="/">Go to Menu</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

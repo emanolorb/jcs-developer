@@ -17,10 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
-from homepage.views import index , contact
+from homepage.views import index , contact, history
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
     url(r'^contact$', contact),
+    url(r'^history$', history),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]

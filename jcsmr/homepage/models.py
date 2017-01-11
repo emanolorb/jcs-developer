@@ -96,3 +96,24 @@ class ContactPageImage(models.Model):
 
     def __str__(self):
         return '%s - %s' % ('Initial imge contact-template', self.contact_image)
+
+
+class HistoyPageImage(models.Model):
+    history_image = models.ImageField()
+    text1 = models.TextField()
+
+    def save(self, *args, **kwargs):
+        data = HistoyPageImage.objects.filter()
+        if data:
+            for obj in data:
+                history_imagepath = '%s' %(obj.history_image.path)
+                history_imagename = '%s' %(obj.history_image.name)
+            if history_imagename != self.history_image.name:
+                os.remove(history_imagepath)
+        HistoyPageImage.objects.filter().delete()
+        super(HistoyPageImage, self).save(*args, **kwargs)
+        HistoyPageImage.objects.filter().update(id=1)
+
+    def __str__(self):
+        return '%s - %s' % ('Initial imge history-template', self.history_image)
+        

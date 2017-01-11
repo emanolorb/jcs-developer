@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import HomePageImage, HomePageSlider, HomePageText, ContactPageImage
+from .models import HomePageImage, HomePageSlider, HomePageText, ContactPageImage, HistoyPageImage
 from contacts.forms import AddContactForm
 from contacts.models import Contact
+
 # Create your views here.
 def index(request):
     data = HomePageImage.objects.all()
@@ -59,6 +60,7 @@ def index(request):
     }
     return render(request, 'ini.html', context)
 
+
 def contact(request):
     data = HomePageImage.objects.all()
     data2 = ContactPageImage.objects.all()
@@ -104,3 +106,36 @@ def contact(request):
         if form.is_valid():
             form.save()
     return render(request, 'contact.html', context)
+
+def history(request):
+    data = HomePageImage.objects.all()
+    data2 = HistoyPageImage.objects.all()
+    # validamos el query y si no damos valores a las variables
+    if data:
+        # Sacamos el nombre de cada imagen de portada
+        for obj in data:
+            nombre = '%s' %(obj.main_icon.name)
+            nombre1 = '%s' %(obj.parallax_image1.name)
+            nombre3 = '%s' %(obj.favicon.name)
+    else:
+        nombre = '%s' %('')
+        nombre1 = '%s' %('')
+        nombre3 = '%s' %('')
+    print ( data.__dict__ )
+    # validamos el query y si no damos valores a las variables
+    if data2:
+        # Sacamos el nombre de cada imagen de portada
+        for obj in data2:
+            imageHistory = '%s' %(obj.history_image.name)
+            textHistory = '%s' %(obj.text1)
+    else:
+        imageHistory = '%s' %('')
+        textHistory = '%s' %('')
+    context = {
+        'img1' : nombre,
+        'img2' : nombre1,
+        'img4' : nombre3,
+        'imageHistory' : imageHistory,
+        'textHistory' : textHistory,
+    }
+    return render(request, 'history.html', context)
