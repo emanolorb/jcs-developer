@@ -7,6 +7,7 @@
     <style>
                 .parallax-container{
                     height: 300px;
+                    z-index: -1;
                 }
                 /* tipografia */
                 html {
@@ -22,6 +23,7 @@
                 }
                 .slider .indicators .indicator-item.active {
                 background-color: #558b2f;
+
                 }
                 .slider {
                 width: 900px;
@@ -29,7 +31,6 @@
                 }
                 .slider .indicators {
                 bottom: 60px;
-                z-index: 100;
                 }
                 /* correspondiente al navbar que se mueve */
     </style>
@@ -57,7 +58,7 @@
                 <div class="section white">
                         <div class="row container">
      <!-- slider -->
-                            <div class="slider ">
+                            <div class="slider">
                                 <ul class="slides lime darken-2">
                                     {% for obj in data %}
                                     <li>
