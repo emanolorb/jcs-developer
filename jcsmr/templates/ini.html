@@ -59,7 +59,7 @@
                         <div class="row container">
      <!-- slider -->
                             <div class="slider">
-                                <ul class="slides lime darken-2">
+                                <ul class="slides">
                                     {% for obj in data %}
                                     <li>
                                         <img src="/media/{{ obj.slider_image.name }}"> <!-- random image -->
@@ -90,4 +90,17 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block scrips %}
+    {{ block.super }}
+    <script>
+        $(document).ready(function(){
+            $('.toc-wrapper').pushpin({
+            top: 0,
+            bottom: 1000,
+            offset: 0
+            });
+        });
+    </script>  
 {% endblock %}
