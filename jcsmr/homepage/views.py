@@ -43,6 +43,18 @@ def index(request):
         color1 = '%s' %('lighten-5')
         texto4 = '%s' %('Titulo blank section')
         texto5 = '%s' %('Titulo blank section')
+        toast1 = False
+    if request.method == 'POST':
+        toast1 = True
+        paquete = {
+            'first_name' : request.POST.get('first_name'),
+            'phone' : request.POST.get('phone'),
+            'email' : request.POST.get('email'),
+            'message' : request.POST.get('message')
+            }
+        form = AddContactForm(paquete)
+        if form.is_valid():
+            form.save()
     context = {
         'img1' : nombre,
         'img2' : nombre1,
@@ -57,6 +69,7 @@ def index(request):
         'data' : data1,
         'colorMaintitle' : color,
         'colorMainSubtitle' : color1,
+        'toast1' : toast1,
     }
     return render(request, 'ini.html', context)
 
@@ -75,7 +88,6 @@ def contact(request):
         nombre = '%s' %('')
         nombre1 = '%s' %('')
         nombre3 = '%s' %('')
-    print ( data.__dict__ )
     # validamos el query y si no damos valores a las variables
     if data2:
         # Sacamos el nombre de cada imagen de portada
@@ -95,16 +107,6 @@ def contact(request):
         'textContact1' : textContact1,
         'textContact2' : textContact2,
     }
-    if request.method == 'POST':
-        paquete = {
-            'first_name' : request.POST.get('first_name'),
-            'phone' : request.POST.get('phone'),
-            'email' : request.POST.get('email'),
-            'message' : request.POST.get('message')
-            }
-        form = AddContactForm(paquete)
-        if form.is_valid():
-            form.save()
     return render(request, 'contact.html', context)
 
 def history(request):
@@ -121,7 +123,6 @@ def history(request):
         nombre = '%s' %('')
         nombre1 = '%s' %('')
         nombre3 = '%s' %('')
-    print ( data.__dict__ )
     # validamos el query y si no damos valores a las variables
     if data2:
         # Sacamos el nombre de cada imagen de portada

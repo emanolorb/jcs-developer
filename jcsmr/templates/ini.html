@@ -1,19 +1,20 @@
 {% extends 'base/base.html' %}
 
 {% block extrastatic %}
-<link rel="shortcut icon" href="/media/{{ img4 }}"/>
 <!-- style css -->
     {{ block.super }}
     <style>
+                /* PARA EL NAVBAR 
+                .toc-wrapper{
+                    opacity: 0.5;
+                    filter: alpha(opacity=50); 
+                }*/
+                /* */
                 .parallax-container{
                     height: 300px;
                     z-index: -1;
                 }
-                /* tipografia */
-                html {
-                    font-family: GillSans;
-                }
-                /* Css correspondiente al slider */
+                 /* Css correspondiente al slider */
                 .slider .indicators .indicator-item {
                 background-color: #8d6e63; 
                 border: 3px solid #ffffff;
@@ -98,9 +99,16 @@
         $(document).ready(function(){
             $('.toc-wrapper').pushpin({
             top: 0,
-            bottom: 1000,
+            bottom: 2000,
             offset: 0
             });
         });
-    </script>  
+    </script>
+            {% if toast1 %}
+             <script>
+                $(document).ready(function(){
+                    Materialize.toast('Thank you for your opinion!', 3000, 'rounded');
+                });
+            </script>
+        {% endif %}
 {% endblock %}
