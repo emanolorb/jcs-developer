@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    JC's - History
+{% endblock %}
+
+{% block content %}
+<section>
+<!-- seccion blanca -->
+    <div id="historyseccion" class="container">
+                        <h2 class="header">Menus</h2>
+        <ul class="collapsible popout" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header active"><i class="material-icons">free_breakfast</i>Takeout</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">restaurant_menu</i>Luch</div>
+            <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+                <i class="material-icons">restaurant</i>Dinner
+            </div>
+            <div class="collapsible-body">
+                <p>I am Flow Text</p>            
+            </div>
+          </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
+
+{% block scrips %}
+    {{ block.super }}
+    <script>
+        $(document).ready(function(){
+            $('.toc-wrapper').pushpin({
+            top: 0,
+            bottom: 1000,
+            offset: 0
+            });
+        });
+    </script>  
+{% endblock %}
+ 
