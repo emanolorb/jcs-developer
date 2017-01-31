@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
-
+        {% block navbar %}
+        {% endblock %}
 {% block extrastatic %}
 <!-- style css -->
     {{ block.super }}
@@ -11,10 +12,69 @@
                 }*/
                 /* */
                 .parallax-container{
-                    height: 300px;
-                    z-index: -1;
+                    height: 500px;
+                    z-index: 1;
+                }
+                /* Slider */
+                .slider .indicators .indicator-item {
+                    background-color: #666666;
+                    border: 3px solid #ffffff;
+                    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                }
+                .slider .indicators .indicator-item.active {
+                    background-color: #00e676;
+                }
+                .slider .indicators {
+                    bottom: 60px;
+                    z-index: 100;
+                /* text-align: left; */
+                }
+                .slider .indicators {
+                    bottom: 60px;
+                    z-index: 100;
                 }
                 /* correspondiente al navbar que se mueve */
+                nav ul li a:hover, nav ul li a.active {
+                    background-color: rgba(0,0,0,.1);
+                }
+                html, body, .block {
+                    height: 100%;
+                }
+                /* nuevasection */
+                body, .cambio{
+                    background: #a1887f;
+                }
+                /* -------------*/
+a.twitter-timeline {
+  /* Buttonish */
+  display: inline-block;
+  padding: 6px 12px 6px 30px;
+  margin: 10px 0;
+  border: #00e676 solid 1px;
+  border-radius: 3px;
+  background: #f8f8f8 url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNzIgNzIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDcyIDcyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxyZWN0IHg9IjAiIGZpbGw9Im5vbmUiIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiIvPg0KPHBhdGggZmlsbD0iIzU1YWNlZSIgZD0iTTY4LjgxMiwxNS4xNDFjLTIuMzQ4LDEuMDM5LTQuODY5LDEuNzQzLTcuNTE5LDIuMDZjMi43MDMtMS42Miw0Ljc3OC00LjE4Nyw1Ljc1Ni03LjI0NGMtMi41MjksMS41LTUuMzMsMi41OTItOC4zMTMsMy4xNzYNCglDNTYuMzQ5LDEwLjU5MSw1Mi45NDgsOSw0OS4xODIsOWMtNy4yMjksMC0xMy4wOTIsNS44NjEtMTMuMDkyLDEzLjA5M2MwLDEuMDI2LDAuMTE4LDIuMDIxLDAuMzM4LDIuOTgxDQoJYy0xMC44ODUtMC41NDgtMjAuNTI4LTUuNzU3LTI2Ljk4Ny0xMy42NzljLTEuMTI2LDEuOTM2LTEuNzcxLDQuMTg0LTEuNzcxLDYuNTgxYzAsNC41NDIsMi4zMTIsOC41NTEsNS44MjQsMTAuODk4DQoJYy0yLjE0Ni0wLjA2OS00LjE2NS0wLjY1Ny01LjkzLTEuNjM4Yy0wLjAwMiwwLjA1NS0wLjAwMiwwLjExLTAuMDAyLDAuMTYyYzAsNi4zNDUsNC41MTMsMTEuNjM4LDEwLjUwNCwxMi44NA0KCWMtMS4xMDEsMC4yOTgtMi4yNTYsMC40NTctMy40NDksMC40NTdjLTAuODQ2LDAtMS42NjctMC4wNzgtMi40NjUtMC4yMzFjMS42NjcsNS4yLDYuNDk5LDguOTg2LDEyLjIzLDkuMDkNCgljLTQuNDgyLDMuNTEyLTEwLjEyOSw1LjYwNi0xNi4yNiw1LjYwNmMtMS4wNTUsMC0yLjA5Ni0wLjA2MS0zLjEyMi0wLjE4NGM1Ljc5NCwzLjcxNywxMi42NzYsNS44ODIsMjAuMDY3LDUuODgyDQoJYzI0LjA4MywwLDM3LjI1MS0xOS45NDksMzcuMjUxLTM3LjI0OWMwLTAuNTY2LTAuMDE0LTEuMTM0LTAuMDM5LTEuNjk0QzY0LjgzOCwyMC4wNjgsNjcuMDU4LDE3Ljc2NSw2OC44MTIsMTUuMTQxeiIvPg0KPC9zdmc+DQo=") 8px 8px no-repeat;
+  background-size: 1em 1em;
+
+  /* Text */
+  font: normal 12px/18px Helvetica, Arial, sans-serif;
+  color: #333;
+  white-space: nowrap;
+}
+
+a.twitter-timeline:hover,
+a.twitter-timeline:focus {
+  background-color: #dedede;
+}
+
+/* Color Highlight for keyboard navigation */
+
+a.twitter-timeline:focus {
+  outline: none;
+  border-color: #0089cb;
+}
+
     </style>
 {% endblock %}
 
@@ -29,18 +89,41 @@
             <div class="parallax row">
                 <img src="/media/{{ img2 }}"> 
             </div>
-                <div class="arriba">
-                    <div class="row center-align">
-                        <strong><h1 class="grey-text text-{{ colorMaintitle }}">{{ mainTitle }}</h1></strong>
-                        <h3 class="grey-text text-{{ colorMainSubtitle }}">{{ mainDescription }}</p>
-                    </div>
+               <div class="row center-align">
+                   <div class="col s12"><h3 class="grey-text"></h3></div>
+                   <div class="col s12"><h3 class="grey-text"></h3></div>
+                   <div class="col s12"><h3 class="grey-text"></h3></div>
+                   <div class="col s12"><h3 class="grey-text"></h3></div>
+                   <div class="col s12"><h1 class="grey-text text-{{ colorMaintitle }}"><strong>{{ mainTitle }}</strong></h1></div>
+                   <div class="col s12"><h3 class="grey-text text-{{ colorMainSubtitle }}">{{ mainDescription }}</h3></div>
                </div>
         </div>
-<!-- seccion blanca -->
-                <div class="section white">
-                        <div class="row container">
-     <!-- slider -->
-                            <div class="slider">
+<!-- navbar -->
+        <div id="red" class="cambio">
+        <nav class="toc-wrapper pushpin-demo-nav" data-target="red">
+            <div class="nav-wrapper brown">
+            <div class="container">
+                <a href="#" class="brand-logo"><img src="/media/{{ img1 }}" class="" height="63"></a>
+                <a href="#" data-activates="mobile-demo"  class="brand-logo button-collapse"><img src="/media/{{ img1 }}" class="" height="63"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/history">History</a></li>
+                    <li><a href="/menus">Menus</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/history">History</a></li>
+                    <li><a href="/menus">Menus</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+    <!-- slider <-->
+        <div class="cambio">
+                            <div class="slider container">
                                 <ul class="slides">
                                     {% for obj in data %}
                                     <li>
@@ -53,23 +136,34 @@
                                     {% endfor %}
                                 </ul>
                                 </div>
+<!-- seccion blanca -->
+                <div class="container cambio row">
     <!-- letras -->
                                 <h2 class="header">{{ blanktextTitle1 }}</h2>
                                 <p class="grey-text text-darken-3 lighten-3">{{ blanktextDescription1 }}</p>
-                                </div>
-                       </div>
                 </div>
+    </div>
+
+
+<!-- prueba -->
+
+    <a class="twitter-timeline" width="3000" data-border-color="#666666" data-height="700" href="https://twitter.com/RexTherapeutics" data-link-color="#cddc39" data-chrome="nofooter noscrollbar">Tweets by RexTherapeutics</a>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
 <!-- seccion parallax -->
             <div class="parallax-container">
                 <div class="parallax"><img src="/media/{{ img3 }}"></div>
             </div>
 <!-- seccion blanca -->
-        <div class="section white">
+<div class="cambio">
             <div class="row container">
             <h2 class="header">{{ blanktextTitle2 }}</h2>
             <p class="grey-text text-darken-3 lighten-3">{{ blanktextDescription2 }}</p>
-            </div>
         </div>
+    </div>
     </div>
 </section>
 {% endblock %}
@@ -78,10 +172,17 @@
     {{ block.super }}
     <script>
         $(document).ready(function(){
-            $('.toc-wrapper').pushpin({
+            $('.ttoc-wrapper').pushpin({
             top: 0,
-            bottom: 2000,
-            offset: 0
+            bottom: 3000,
+            offset: 50
+            });
+            $('.pushpin-demo-nav').each(function() {
+                var $this = $(this);
+                var $target = $('#' + $(this).attr('data-target'));
+                $this.pushpin({
+                top: $target.offset().top,
+                });
             });
         });
     </script>
